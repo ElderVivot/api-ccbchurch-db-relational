@@ -1,0 +1,38 @@
+# findMany
+GET http://localhost:3332/v1/sector HTTP/1.1
+content-type: application/json
+
+###
+
+# findOne
+GET http://localhost:3332/v1/sector/ea429162-1a4f-4791-8dc6-698a6634fa63 HTTP/1.1
+content-type: application/json
+
+###
+
+# create
+POST http://localhost:3332/v1/sector HTTP/1.1
+content-type: application/json
+
+{
+    "numberSector": 3,
+    "nameSector": "VILA BRASILIA",
+    "idAdministration": "84d8a0e9-ddba-4042-aa4c-f31f259190c7"
+}
+
+###
+
+# update
+PUT http://localhost:3332/v1/sector/ea429162-1a4f-4791-8dc6-698a6634fa63 HTTP/1.1
+content-type: application/json
+
+{
+    "numberSector": 1,
+    "nameSector": "INDEPENDENCIA",
+    "idAdministration": "84d8a0e9-ddba-4042-aa4c-f31f259190c7"
+}
+
+###
+
+# remove
+DELETE http://localhost:3332/v1/sector/3d61d22b-c1a8-4910-85a0-97b449f2a0ca HTTP/1.1
