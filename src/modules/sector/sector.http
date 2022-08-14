@@ -15,8 +15,8 @@ POST http://localhost:3332/v1/sector HTTP/1.1
 content-type: application/json
 
 {
-    "numberSector": 3,
-    "nameSector": "VILA BRASILIA",
+    "numberSector": 2,
+    "nameSector": "GARAVELO",
     "idAdministration": "84d8a0e9-ddba-4042-aa4c-f31f259190c7"
 }
 

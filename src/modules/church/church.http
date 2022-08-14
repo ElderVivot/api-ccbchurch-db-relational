@@ -1,0 +1,38 @@
+# findMany
+GET http://localhost:3332/v1/church HTTP/1.1
+content-type: application/json
+
+###
+
+# findOne
+GET http://localhost:3332/v1/church/e16dba12-5ff1-401a-b913-dcf228a41e2f HTTP/1.1
+content-type: application/json
+
+###
+
+# create
+POST http://localhost:3332/v1/church HTTP/1.1
+content-type: application/json
+
+{
+    "codeChurch": "070281",
+    "nameChurch": "CRUZEIRO 2",
+    "numberSector": 1
+}
+
+###
+
+# update
+PUT http://localhost:3332/v1/church/e16dba12-5ff1-401a-b913-dcf228a41e2f HTTP/1.1
+content-type: application/json
+
+{
+    "codeChurch": "070281",
+    "nameChurch": "CRUZEIRO 1",
+    "numberSector": 1
+}
+
+###
+
+# remove
+DELETE http://localhost:3332/v1/church/3d61d22b-c1a8-4910-85a0-97b449f2a0ca HTTP/1.1
