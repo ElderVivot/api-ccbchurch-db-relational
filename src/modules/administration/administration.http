@@ -1,0 +1,36 @@
+# findMany
+GET http://localhost:3332/v1/administration HTTP/1.1
+content-type: application/json
+
+###
+
+# findOne
+GET http://localhost:3332/v1/administration/84d8a0e9-ddba-4042-aa4c-f31f259190c7 HTTP/1.1
+content-type: application/json
+
+###
+
+# create
+POST http://localhost:3332/v1/administration HTTP/1.1
+content-type: application/json
+
+{
+    "nameAdministration": "AP. DE GYN"
+}
+
+###
+
+# update
+PUT http://localhost:3332/v1/administration/84d8a0e9-ddba-4042-aa4c-f31f259190c7 HTTP/1.1
+content-type: application/json
+tenant: e5b3885e-a1ab-4
+
+{
+    "nameAdministration": "APARECIDA DE GOIANIA"
+}
+
+###
+
+# remove
+DELETE http://localhost:3332/v1/administration/b746d88f-3e46-4802-84dc-1c6890802c77 HTTP/1.1
+tenant: e5b3885e-a1ab-4
