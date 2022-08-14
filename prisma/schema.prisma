@@ -10,6 +10,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum StatusActiveInactive {
+  ACTIVE
+  INACTIVE
+}
+
 model Administration {
   idAdministration   String   @id @default(uuid())
   nameAdministration String
@@ -22,12 +27,12 @@ model Administration {
 }
 
 model Sector {
-  idSector         String       @id @default(uuid())
+  idSector         String               @id @default(uuid())
   numberSector     Int
   nameSector       String
-  statusSector     StatusSector @default(ACTIVE)
-  createdAt        DateTime     @default(now())
-  updatedAt        DateTime     @updatedAt
+  statusSector     StatusActiveInactive @default(ACTIVE)
+  createdAt        DateTime             @default(now())
+  updatedAt        DateTime             @updatedAt
   idAdministration String
 
   administration Administration @relation(fields: [idAdministration], references: [idAdministration])
@@ -37,26 +42,36 @@ model Sector {
   @@map("sectors")
 }
 
-enum StatusSector {
-  ACTIVE
-  INACTIVE
-}
-
 model Church {
-  idChurch     String       @id @default(uuid())
-  codeChurch   String       @unique
+  idChurch     String               @id @default(uuid())
+  codeChurch   String               @unique
   nameChurch   String
-  statusChurch StatusChurch @default(ACTIVE)
-  createdAt    DateTime     @default(now())
-  updatedAt    DateTime     @updatedAt
+  statusChurch StatusActiveInactive @default(ACTIVE)
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
   idSector     String
 
   sector Sector @relation(fields: [idSector], references: [idSector])
 
+  churchsCardMachine ChurchCardMachine[]
+
   @@map("churchs")
 }
 
-enum StatusChurch {
-  ACTIVE
-  INACTIVE
+enum MachineSupplier {
+  CIELO
+}
+
+model ChurchCardMachine {
+  idChurchCardMachine String               @id @default(uuid())
+  numberCardMachine   String               @unique
+  status              StatusActiveInactive @default(ACTIVE)
+  machineSupplier     MachineSupplier      @default(CIELO)
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  idChurch            String
+
+  church Church @relation(fields: [idChurch], references: [idChurch])
+
+  @@map("churchs_card_machines")
 }
